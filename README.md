@@ -1,24 +1,19 @@
-# README
+# BonsorBox (Work in Progress)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails app for box league management.
 
-Things you may want to cover:
+Players should be able to:
 
-* Ruby version
+- Sign up for an account
+- Update their contact information
+- Set and update their availability
+- See other players’ contact information and availability
+- See a list of players they can play in a round
+- Be assigned a fresh combination of opponents each round
+- See the current round information
+- Delete their account
 
-* System dependencies
+## Tech Stack
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby on Rails
+- PostgreSQL
