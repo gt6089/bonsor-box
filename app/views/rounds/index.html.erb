@@ -1,6 +1,9 @@
 <h1>Rounds#index</h1>
   <ul>
   <% @rounds.each do |r| %>
-    <li><%= r.start_date.to_s %></li>
+    <li><strong><%= r.start_date.to_s %></strong></li>
+    <% r.boxes.each do |b| %>
+      <li><%= link_to "Box", box_path(b) %></li>
+    <% end %>
   <% end %>
 </ul>

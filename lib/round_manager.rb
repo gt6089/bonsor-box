@@ -1,17 +1,22 @@
-class RoundManager do
+class RoundManager
   def initialize(round, box_size=3)
     @round = round
     @box_size = box_size
-    @players = Players.where(active: true).shuffle
+    @players = Player.where(active: true).shuffle
     @boxes = []
+    @logger = Rails.logger
   end
 
   def start!
-    byebug
-    run?
-    create_boxes
-    assign_players
-    logger.info("#{@boxes.length} boxes created and #{@players.count} assigned") 
+    return false unless run?
+    create_boxes && assign_players
+    @logger.info("#{@boxes.length} boxes created and #{@players.count} assigned")
+    true
+  end
+
+  def regenerate
+    destroy_boxes
+    start!
   end
 
   private
@@ -25,17 +30,21 @@ class RoundManager do
     @boxes
   end
 
+  def destroy_boxes
+    @round.boxes.destroy_all
+  end
+
   def assign_players
-    @list = @players
+    list = @players.dup
     @boxes.each do |b|
-      until @boxes.players.count == @box_size || @list.empty?
-        b.players << @list.first
-        @list.shift
+      until b.players.count == @box_size || list.empty?
+        b.players << list.first
+        list.shift
       end
     end
   end
 
   def boxes_needed
-    (@players.count / @box_size).round
+    (@players.count.to_f / @box_size.to_f).round
   end
 end

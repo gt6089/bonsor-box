@@ -11,11 +11,11 @@ PASSWORD = 'secret'
 puts "***** BEGIN SEEDING ******"
 
 # create admin
-admin = Player.create(first_name: 'Admin', email: 'admin@bonsorbox.com', admin: true, password: PASSWORD)
+admin = Player.create(first_name: 'Admin', last_name: 'Kealy', email: 'admin@bonsorbox.com', phone: Faker::PhoneNumber.cell_phone, admin: true, password: PASSWORD)
 puts "Created admin: #{admin.inspect}"
 
 # create players
-5.times do
+10.times do
   player = Player.create(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, password: PASSWORD)
   puts "Created player: #{player.inspect}"
 end

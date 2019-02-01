@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_01_042032) do
+ActiveRecord::Schema.define(version: 2019_02_01_073526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.bigint "player_id"
+    t.bigint "box_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["box_id"], name: "index_assignments_on_box_id"
+    t.index ["player_id"], name: "index_assignments_on_player_id"
+  end
 
   create_table "boxes", force: :cascade do |t|
     t.bigint "round_id", null: false
@@ -56,5 +65,7 @@ ActiveRecord::Schema.define(version: 2019_02_01_042032) do
     t.index ["name"], name: "index_venues_on_name"
   end
 
+  add_foreign_key "assignments", "boxes"
+  add_foreign_key "assignments", "players"
   add_foreign_key "boxes", "rounds"
 end

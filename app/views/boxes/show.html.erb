@@ -1,0 +1,8 @@
+<h1>Box <%= @box.id %></h1>
+<p>
+  <ul>
+    <% @box.players.each do |p| %>
+      <li><%= p.full_name %></li>
+    <% end %>
+  </ul>
+</p>
