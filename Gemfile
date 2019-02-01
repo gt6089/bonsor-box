@@ -40,6 +40,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'hirb'
   gem 'faker'
+  gem 'rubocop'
 end
 
 group :development do

@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2019_02_01_042032) do
   enable_extension "plpgsql"
 
   create_table "boxes", force: :cascade do |t|
-    t.integer "size"
     t.bigint "round_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
