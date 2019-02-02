@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     if @player.save
-      flash[:success] = 'Welcome to BonsorBox!'
+      flash.now[:success] = 'Welcome to BonsorBox!'
       redirect_to @player
     else
       render 'new'
