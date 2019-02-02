@@ -23,7 +23,7 @@ end
 # create rounds
 3.times do |r|
   # 30 days in seconds is 2,592,000
-  round = Round.create(start_date: Date.today + (r*30).days, duration: 2592000)
+  round = Round.create(start_date: Date.current + (r*30).days, duration: 2592000)
   puts "Created round: #{round.inspect}"
 end
 
