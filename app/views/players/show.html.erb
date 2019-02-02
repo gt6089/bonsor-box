@@ -1,2 +1,7 @@
+<% provide(:title, @player.full_name) %>
+
 <h1>Players#show</h1>
-<p>Find me in app/views/players/show.html.erb</p>
+<p>
+  <%= @player.full_name %>
+  <%= @player.email %>
+</p>

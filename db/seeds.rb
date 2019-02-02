@@ -8,7 +8,7 @@
 
 PASSWORD = 'secret'
 
-puts "***** BEGIN SEEDING ******"
+puts '***** BEGIN SEEDING ******'
 
 # create admin
 admin = Player.create(first_name: 'Admin', last_name: 'Kealy', email: 'admin@bonsorbox.com', phone: Faker::PhoneNumber.cell_phone, admin: true, password: PASSWORD)
@@ -23,8 +23,8 @@ end
 # create rounds
 3.times do |r|
   # 30 days in seconds is 2,592,000
-  round = Round.create(start_date: Date.current + (r*30).days, duration: 2592000)
+  round = Round.create(start_date: Date.current + (r * 30).days, duration: 2_592_000)
   puts "Created round: #{round.inspect}"
 end
 
-puts "***** FINISHED SEEDING ******"
+puts '***** FINISHED SEEDING ******'
