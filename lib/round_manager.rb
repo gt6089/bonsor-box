@@ -1,7 +1,7 @@
 class RoundManager
   attr_reader :round, :players, :box_size
 
-  def initialize(round, box_size=3)
+  def initialize(round, box_size = 3)
     @round = round
     @box_size = box_size
     @players = Player.where(active: true).shuffle
@@ -11,6 +11,7 @@ class RoundManager
 
   def start!
     return false unless run?
+
     create_boxes && assign_players
     @logger.info("#{@boxes.length} boxes created and #{players.count} assigned")
     true
