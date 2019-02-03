@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'dashboard', to: 'dashboards#show', as: 'dashboard'
+
   resources :players, :rounds, :boxes
 
   get '/signup', to: 'players#new'

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 PASSWORD = 'secret'
+ROUND_DURATION = 2_592_000
 
 puts '***** BEGIN SEEDING ******'
 
@@ -20,10 +21,14 @@ puts "Created admin: #{admin.inspect}"
   puts "Created player: #{player.inspect}"
 end
 
-# create rounds
+# create current round
+round = Round.create(start_time: Date.current - 10.days, duration: ROUND_DURATION)
+puts "Created current round: #{round.inspect}"
+
+# create future rounds
 3.times do |r|
   # 30 days in seconds is 2,592,000
-  round = Round.create(start_date: Date.current + (r * 30).days, duration: 2_592_000)
+  round = Round.create(start_time: Round.last.end_time + 1.days, duration: ROUND_DURATION)
   puts "Created round: #{round.inspect}"
 end
 

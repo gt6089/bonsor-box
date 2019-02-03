@@ -1,0 +1,14 @@
+<h1>Your box</h1>
+<h3>Round ends in <%= time_to_round_end %></h3>
+
+<% @dashboard.opponents.each do |o| %>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= full_name(o) %></h5>
+      <h6 class="card-subtitle"><%= o.email %></h6>
+      <h6 class="card-subtitle"><%= o.phone %></h6>
+      <p class="card-text">Prefers <%= format_preferred_contact(o) %></p>
+      <button class="btn btn-primary">I've played them</button>
+    </div>
+  </div>
+<% end %>
