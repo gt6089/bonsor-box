@@ -11,7 +11,6 @@ class RoundManager
 
   def start!
     return false unless run?
-
     create_boxes && assign_players
     @logger.info("#{@boxes.length} boxes created and #{players.count} assigned")
     true

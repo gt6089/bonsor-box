@@ -10,8 +10,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_round
-    Round.all.find { |r| r.current? }
-  end
-
 end

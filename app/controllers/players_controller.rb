@@ -1,6 +1,8 @@
 class PlayersController < ApplicationController
+  before_action :check_login, :find_player, :authorize, only: [:edit, :show, :update]
+
   def index
-    @players = Player.all
+    @players = Player.active
   end
 
   def create
@@ -18,16 +20,43 @@ class PlayersController < ApplicationController
   end
 
   def show
-    @player = Player.find(params[:id])
+  end
+
+  def edit
   end
 
   def update
+    if @player.update(player_params)
+      flash.now[:success] = 'Profile updated.'
+      render 'edit'
+    else
+      flash.now[:danger] = 'Could not update your profile.'
+      render 'edit'
+    end
   end
 
   def destroy
   end
 
   private
+
+  def check_login
+    unless logged_in?
+      flash[:danger] = 'You must be logged in to do that.'
+      redirect_to login_path
+    end
+  end
+
+  def authorize
+    unless current_user?(@player)
+      flash[:danger] = 'You are not authorized to do that.'
+      redirect_to root_path
+    end
+  end
+
+  def find_player
+    @player = Player.find(params[:id])
+  end
 
   def player_params
     params.require(:player).permit(:first_name, :last_name, :email, :phone, :preferred_contact, :password, :password_confirmation)

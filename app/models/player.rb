@@ -12,6 +12,9 @@ class Player < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :first_name, presence: true
   validates :password, presence: true, length: { minimum: 6 }
+
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
   
   def self.new_token
     SecureRandom.urlsafe_base64

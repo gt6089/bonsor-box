@@ -15,10 +15,16 @@ puts '***** BEGIN SEEDING ******'
 admin = Player.create(first_name: 'Admin', last_name: 'Kealy', email: 'admin@bonsorbox.com', phone: Faker::PhoneNumber.cell_phone, admin: true, password: PASSWORD)
 puts "Created admin: #{admin.inspect}"
 
-# create players
+# create active players
 10.times do
   player = Player.create(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, password: PASSWORD)
-  puts "Created player: #{player.inspect}"
+  puts "Created active player: #{player.inspect}"
+end
+
+# create inactive players
+2.times do
+  player = Player.create(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, active: false, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, password: PASSWORD)
+  puts "Created inactive player: #{player.inspect}"
 end
 
 # create current round
@@ -30,6 +36,12 @@ puts "Created current round: #{round.inspect}"
   # 30 days in seconds is 2,592,000
   round = Round.create(start_time: Round.last.end_time + 1.days, duration: ROUND_DURATION)
   puts "Created round: #{round.inspect}"
+end
+
+# create boxes
+Round.all.each do |r|
+  RoundManager.new(r).start!
+  puts "Created assignments for round #{r.start_time}"
 end
 
 puts '***** FINISHED SEEDING ******'

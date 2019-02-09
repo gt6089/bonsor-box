@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def current_round
-    Round.all.find { |r| r.current? }
+    Round.current
   end
 
   def time_to_round_end

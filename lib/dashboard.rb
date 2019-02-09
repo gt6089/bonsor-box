@@ -6,7 +6,7 @@ class Dashboard
   end
 
   def current_box
-    @current_box ||= user.boxes.find { |b| b.current }
+    @current_box ||= user.boxes.includes(:round).find { |b| b.current }
   end
 
   def opponents

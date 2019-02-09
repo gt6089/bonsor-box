@@ -7,7 +7,7 @@
     <% if logged_in? %>
     <div class="navbar-nav">
       <%= link_to "Dashboard", dashboard_path, class: "nav-item nav-link active" %>
-      <%= link_to "Profile", player_path(current_user), class: "nav-item nav-link active" %>
+      <%= link_to "Profile", edit_player_path(current_user), class: "nav-item nav-link active" %>
       <%= link_to "Players", players_path, class: "nav-item nav-link active" %>
       <%= link_to "Logout", logout_path, method: :delete, class: "btn btn-secondary" %>
     </div>

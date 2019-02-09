@@ -1,0 +1,29 @@
+<%= form_for @player do |f| %>
+  <%= render 'shared/error_messages' %>
+  
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :phone %>
+  <%= f.phone_field :phone %>
+
+  <%= f.radio_button :preferred_contact, "email" %>
+  <%= f.label :preferred_contact, "Email" %>
+
+  <%= f.radio_button :preferred_contact, "text" %>
+  <%= f.label :preferred_contact, "Text" %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit yield(:button_text) %>
+<% end %>
