@@ -27,6 +27,15 @@ end
   puts "Created inactive player: #{player.inspect}"
 end
 
+# add player notes
+players = Player.order("random()").limit(8)
+players.each do |p|
+  p.notes = Faker::TheFreshPrinceOfBelAir.quote
+  p.preferred_contact = 
+  p.save(validate: false)
+end
+puts "Added player notes for #{players}"
+
 # create current round
 round = Round.create(start_time: Date.current - 10.days, duration: ROUND_DURATION)
 puts "Created current round: #{round.inspect}"

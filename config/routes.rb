@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :players, :rounds, :boxes
 
+  get '/status/:id', to: 'players#status', as: 'status'
+
   get '/signup', to: 'players#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

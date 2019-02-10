@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
-  before_action :check_login, :find_player, :authorize, only: [:edit, :show, :update]
+  before_action :check_login, :find_player, only: [:edit, :show, :update, :status]
+  before_action :authorize, only: [:edit, :update, :status]
 
   def index
     @players = Player.active
@@ -36,6 +37,12 @@ class PlayersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def status
+    @player.update(active: !@player.active)
+    flash.now[:success] = "You are now #{@player.active}."
+    render 'edit'
   end
 
   private

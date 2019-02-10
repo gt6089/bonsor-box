@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_02_02_090648) do
     t.string "password_digest"
     t.boolean "active", default: true
     t.string "preferred_contact", default: ""
+    t.string "notes", default: ""
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
