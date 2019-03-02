@@ -44,4 +44,9 @@ class Player < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def active?
+    active
+  end
+
 end

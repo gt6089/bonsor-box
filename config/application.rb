@@ -18,4 +18,9 @@ module BonsorBox
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
   end
+
+  Raven.configure do |config|
+    config.dsn = 'https://16ecb0f3ee0346b7895c4caf29651d5b:ddeaf0dbf77c45e4835ec0b7f7e67a95@sentry.io/1393830'
+  end
+
 end

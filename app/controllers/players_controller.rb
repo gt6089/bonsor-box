@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
-  before_action :check_login, :find_player, only: [:edit, :show, :update, :status]
-  before_action :authorize, only: [:edit, :update, :status]
+  before_action :check_login, :find_player, only: %i[edit show update status]
+  before_action :authorize, only: %i[edit update status]
 
   def index
     @players = Player.active
@@ -29,19 +29,22 @@ class PlayersController < ApplicationController
   def update
     if @player.update(player_params)
       flash.now[:success] = 'Profile updated.'
-      render 'edit'
     else
       flash.now[:danger] = 'Could not update your profile.'
-      render 'edit'
     end
+    render 'edit'
   end
 
   def destroy
   end
 
   def status
-    @player.update(active: !@player.active)
-    flash.now[:success] = "You are now #{@player.active}."
+    p = Players::UpdateStatus.new(@player)
+    if p.save
+      flash.now[:success] = 'Your status has been updated.'
+    else
+      flash.now[:danger] = 'Your status could not be updated.'
+    end
     render 'edit'
   end
 
