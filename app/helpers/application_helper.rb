@@ -12,6 +12,10 @@ module ApplicationHelper
     distance_of_time_in_words_to_now(current_round.end_time)
   end
 
+  def current_round_end
+    Round.current.end_time.strftime('%A, %b %e')
+  end
+
   def format_preferred_contact(player)
     if player.preferred_contact.empty?
       "text or email"

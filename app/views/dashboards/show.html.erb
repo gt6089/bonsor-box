@@ -1,17 +1,25 @@
-<h1 class="display-3">Your box</h1>
-<h3>Round ends in <%= time_to_round_end %></h3>
-<% if @dashboard.current_box %>
-  <% @dashboard.opponents.each do |o| %>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to full_name(o), player_path(o.id) %></h5>
-        <h6 class="card-subtitle"><%= o.email %></h6>
-        <h6 class="card-subtitle"><%= o.phone %></h6>
-        <p class="card-text">Prefers <%= format_preferred_contact(o) %></p>
-        <button class="btn btn-primary">I've played them</button>
-      </div>
+<% if current_user.active? %>
+  <h1 class="display-3">Your box</h1>
+  <h3>Round ends in <%= time_to_round_end %> at midnight on <%= current_round_end %></h3>
+  <% if @dashboard.current_box %>
+    <div class="row">
+    <% @dashboard.opponents.each do |o| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to full_name(o), player_path(o.id) %></h5>
+              <h6 class="card-subtitle"><%= o.email %></h6>
+              <h6 class="card-subtitle"><%= o.phone %></h6>
+              <p class="card-text">Prefers <%= format_preferred_contact(o) %></p>
+            </div>
+          </div>
+        </div>
+    <% end %>
     </div>
+  <% else %>
+    <h5>You have not been assigned to a box this round.</h5>
   <% end %>
 <% else %>
-  <h5>You have not been assigned to a box this round.</h5>
+  <h3>You are currently inactive. You will not be assigned opponents. Do you want to go active?</h3>
+  <button class="btn btn-primary">Yes, activate me</button>
 <% end %>

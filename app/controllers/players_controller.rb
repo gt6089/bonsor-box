@@ -39,6 +39,7 @@ class PlayersController < ApplicationController
   end
 
   def status
+    byebug
     p = Players::UpdateStatus.new(@player)
     if p.save
       flash.now[:success] = 'Your status has been updated.'

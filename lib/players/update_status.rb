@@ -4,20 +4,20 @@ class Players::UpdateStatus
   end
 
   def save
-    @status ? activate : inactivate
-    @player.save!
+    @player.active ? inactivate : activate
+  end
+
+  def errors
+    @player.errors
   end
 
   def activate
     return false if @player.active
-    @player.active = true
+    @player.update(active: true)
   end
 
   def inactivate
     return false unless @player.active
-    @player.active = false
+    @player.update(active: false)
   end
-
-
-
 end
