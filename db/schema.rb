@@ -38,7 +38,8 @@ ActiveRecord::Schema.define(version: 2019_02_02_090648) do
     t.string "phone"
     t.string "password_digest"
     t.boolean "active", default: true
-    t.string "preferred_contact"
+    t.string "preferred_contact", default: ""
+    t.string "notes", default: ""
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,11 +49,11 @@ ActiveRecord::Schema.define(version: 2019_02_02_090648) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.date "start_date", null: false
+    t.datetime "start_time", null: false
     t.integer "duration", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["start_date"], name: "index_rounds_on_start_date"
+    t.index ["start_time"], name: "index_rounds_on_start_time"
   end
 
   create_table "venues", force: :cascade do |t|

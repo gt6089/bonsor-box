@@ -7,7 +7,8 @@ class CreatePlayers < ActiveRecord::Migration[5.2]
       t.string :phone
       t.string :password_digest
       t.boolean :active, default: true
-      t.string :preferred_contact
+      t.string :preferred_contact, default: ''
+      t.string :notes, default: ''
       t.boolean :admin, default: false
 
       t.timestamps

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails bonsor_box: test" uuid="4fb82e9e-97f1-4507-b132-39a7531347f5">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+    </data-source>
+    <data-source name="Rails bonsor_box: development" uuid="24dc7d3a-9551-4e49-91c4-833284e4cd18">
+      <database-info product="PostgreSQL" version="10.6" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" dbms="POSTGRES" exact-version="10.6" exact-driver-version="42.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <introspection-schemas>@:@</introspection-schemas>
+    </data-source>
+    <data-source name="Rails bonsor_box: production" uuid="6ccbee48-9cbe-46b9-a0db-d810121ec4b0">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>bonsor_box</user-name>
+    </data-source>
+  </component>
+</project>

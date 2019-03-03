@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails bonsor_box: test" uuid="4fb82e9e-97f1-4507-b132-39a7531347f5">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/bonsor_box_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails bonsor_box: development" uuid="24dc7d3a-9551-4e49-91c4-833284e4cd18">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/bonsor_box_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails bonsor_box: production" uuid="6ccbee48-9cbe-46b9-a0db-d810121ec4b0">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/bonsor_box_production</jdbc-url>
+    </data-source>
+  </component>
+</project>

@@ -1,7 +1,8 @@
 <% provide(:title, @player.full_name) %>
 
-<h1>Players#show</h1>
-<p>
-  <%= @player.full_name %>
-  <%= @player.email %>
-</p>
+<h1 class="display-3"><%= @player.full_name %></h1>
+<p><strong>Email:</strong> <%= mail_to @player.email %></p>
+<p><strong>Text/phone:</strong> <%= @player.phone %></p>
+<p><strong>Preferred contact method:</strong> <%= format_preferred_contact(@player) %></p>
+<h3>Availability</h3>
+<p><%= @player.notes %>

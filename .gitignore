@@ -103,4 +103,8 @@ Temporary Items
 # .ruby-gemset
 
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+.rvmrc/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity

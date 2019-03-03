@@ -1,0 +1,2 @@
+	You are <%= status(@player) %>.
+	<%= link_to "Set status to #{status_button(@player)}", status_path(id: @player.id), method: :post, class: 'btn btn-primary' %>
